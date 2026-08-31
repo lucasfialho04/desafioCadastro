@@ -1,16 +1,17 @@
 package main;
 
-import service.LerForm;
+import service.CadastrarPet;
 import service.Menu;
 
 public class Main {
     public static void main(String[] args) {
-        LerForm.lerForm();
+       
         System.out.println(" ");
         int opcaoEscolhida = Menu.menu();
         switch (opcaoEscolhida) {
             case 1:
-
+            CadastrarPet pet = new CadastrarPet();
+            pet.Cadastrar();
                 break;
             case 2:
 
