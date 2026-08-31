@@ -11,7 +11,7 @@ public class Main {
         switch (opcaoEscolhida) {
             case 1:
             CadastrarPet pet = new CadastrarPet();
-            pet.Cadastrar();
+            pet.cadastrar();
                 break;
             case 2:
 

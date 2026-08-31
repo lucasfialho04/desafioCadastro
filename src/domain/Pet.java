@@ -2,9 +2,9 @@ package domain;
 
 public class Pet {
     private String nome;
-    private float peso;
+    private String peso;
     private String raca;
-    private float idade;
+    private String idade;
     private  Endereco endereco;
     private TipoPet tipoPet;
     private Sexo sexo;
@@ -15,10 +15,10 @@ public class Pet {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public float getPeso() {
+    public String getPeso() {
         return peso;
     }
-    public void setPeso(float peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
     public String getRaca() {
@@ -27,10 +27,10 @@ public class Pet {
     public void setRaca(String raca) {
         this.raca = raca;
     }
-    public float getIdade() {
+    public String getIdade() {
         return idade;
     }
-    public void setIdade(float idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
     public Endereco getEndereco() {

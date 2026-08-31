@@ -1,14 +1,14 @@
 package domain;
 
 public class Endereco {
-    private int numeroCasa;
+    private String numeroCasa;
     private String cidade;
     private String rua;
     
-    public int getNumeroCasa() {
+    public String getNumeroCasa() {
         return numeroCasa;
     }
-    public void setNumeroCasa(int numeroCasa) {
+    public void setNumeroCasa(String numeroCasa) {
         this.numeroCasa = numeroCasa;
     }
     public String getCidade() {
