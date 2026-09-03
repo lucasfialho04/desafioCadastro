@@ -21,7 +21,7 @@ public class CadastrarPet {
         if (!nomeValidado) {
             try {
                 throw new TipoInvalidoException("nome invalido");
-            } catch (Exception e) {
+            } catch (TipoInvalidoException e) {
                 e.printStackTrace();
                 do {
                     System.out.println("digite um nome valido");
@@ -89,8 +89,51 @@ public class CadastrarPet {
             }
 
             pet1.setIdade(idadeFinal);
-        } catch (Exception e) {
+        } catch (TipoInvalidoException e) {
             e.printStackTrace();
+        }
+
+        // peso do pet
+        String peso = repostasForm[5];
+        String pesoFinal = "";
+        try {
+            if (peso.isEmpty()) {
+                pesoFinal = NaoInformado.NAO_INFORMADO;
+            } else {
+                double pesoPet = Double.parseDouble(peso);
+                if (pesoPet > 60) {
+                    throw new TipoInvalidoException(" peso invalido");
+                }
+                if (pesoPet < 0.5) {
+                    throw new TipoInvalidoException(" peso invalido");
+                }
+                pesoFinal = String.valueOf(pesoPet);
+            }
+            pet1.setPeso(pesoFinal);
+        } catch (TipoInvalidoException e) {
+            e.printStackTrace();
+        }
+        // raça do pet
+        String regexRaca = "^[a-zA-ZÀ-ÿ\\s]+$";
+        boolean racaValidada = repostasForm[6].matches(regexRaca);
+        if (repostasForm[6].isEmpty()) {
+            pet1.setRaca(NaoInformado.NAO_INFORMADO);
+        }else
+        if (!racaValidada) {
+            try {
+                throw new TipoInvalidoException("raça invalida");
+            } catch (TipoInvalidoException e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+                do {
+                    System.out.println("digite uma raça valida");
+                    repostasForm[6] = input.nextLine();
+                    racaValidada = repostasForm[6].matches(regexRaca);
+                } while (!racaValidada);
+                pet1.setRaca(repostasForm[6]);
+            }
+        }else{
+             pet1.setRaca(repostasForm[6]);
         }
     }
 }
