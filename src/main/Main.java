@@ -4,15 +4,17 @@ import service.CadastrarPet;
 import service.Menu;
 
 public class Main {
-    public static void main(String[] args) {
-       
-        System.out.println(" ");
-        int opcaoEscolhida = Menu.menu();
-        switch (opcaoEscolhida) {
+   public static void main(String[] args) {
+
+      System.out.println(" ");
+      int opcaoEscolhida = Menu.menu();
+      while (opcaoEscolhida != 6) {
+
+         switch (opcaoEscolhida) {
             case 1:
-            CadastrarPet pet = new CadastrarPet();
-            pet.cadastrar();
-                break;
+               CadastrarPet pet = new CadastrarPet();
+               pet.cadastrar();
+               break;
             case 2:
 
                break;
@@ -29,7 +31,9 @@ public class Main {
 
                break;
             default:
-                break;
-        }
-    }
+               break;
+         }
+         opcaoEscolhida = Menu.menu();
+      }
+   }
 }
