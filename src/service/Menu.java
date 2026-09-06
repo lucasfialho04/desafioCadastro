@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public  class  Menu {
     public static  int menu() {
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in,"UTF-8");
         int opcaoEscolhida = 0;
         String opcao;
 

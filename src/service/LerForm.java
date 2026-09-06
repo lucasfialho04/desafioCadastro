@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class LerForm {
     public static String[] lerForm() {
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in,"UTF-8");
         File file = new File("formulario.txt");
         int c = 0;
         String[] arrayRespostas = new String[7];

@@ -1,0 +1,7 @@
+1 - nina
+2 - GATO
+3 - FEMININO
+4 - rua benjamin neves,68,viçosa
+5 - 7.0
+6 - 35.0
+7 - vira lata

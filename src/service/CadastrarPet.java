@@ -11,7 +11,7 @@ import excecoes.TipoInvalidoException;
 
 public class CadastrarPet {
     public void cadastrar() {
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in,"UTF-8");
         String[] repostasForm = LerForm.lerForm();
         Pet pet1 = new Pet();
 
@@ -135,5 +135,7 @@ public class CadastrarPet {
         }else{
              pet1.setRaca(repostasForm[6]);
         }
+        // salvamento do pet
+        SalvarPet.salvarPet(pet1);
     }
 }
