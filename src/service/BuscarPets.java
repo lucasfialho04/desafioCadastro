@@ -183,7 +183,7 @@ public class BuscarPets {
             if (informacao[4] != null && !pet.getPeso().contains(informacao[4])) {
                 passou = false;
             }
-            if (informacao[5] != null && !pet.getEndereco().getRua().toUpperCase().contains(informacao[6].toUpperCase())
+            if (informacao[6] != null && !pet.getEndereco().getRua().toUpperCase().contains(informacao[6].toUpperCase())
                     && !pet.getEndereco().getNumeroCasa().contains(informacao[6])
                     && !pet.getEndereco().getCidade().toUpperCase().contains(informacao[6].toUpperCase())) {
                 passou = false;

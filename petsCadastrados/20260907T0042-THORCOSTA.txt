@@ -1,7 +1,7 @@
 1 - Thor Costa
 2 - CACHORRO
 3 - MASCULINO
-4 - 456,456,centro
+4 - Rua Brasil,456,centro
 5 - nao informado
 6 - 25.0
 7 - vira lata
