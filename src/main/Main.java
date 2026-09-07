@@ -1,5 +1,6 @@
 package main;
 
+import service.BuscarPets;
 import service.CadastrarPet;
 import service.Menu;
 
@@ -22,10 +23,10 @@ public class Main {
 
                break;
             case 4:
-
+               BuscarPets.exibirAllPets();
                break;
             case 5:
-
+               BuscarPets.buscarEexibir();
                break;
             case 6:
 
