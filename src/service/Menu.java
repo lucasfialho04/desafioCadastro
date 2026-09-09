@@ -65,7 +65,7 @@ public class Menu {
         return opcaoEscolhida;
     }
     public static  int menuAlterar(){
-        
+        String opcaoDigitada;
         int opcao = 0;
         System.out.println("qual caracteristica do pet deseja alterar? ");
         System.out.println("opção 1: NOME");
@@ -73,7 +73,17 @@ public class Menu {
         System.out.println("opção 3: ENDEREÇO");
         System.out.println("opção 4: PESO");
         System.out.println("opção 5: RAÇA");
-        opcao = Integer.parseInt(input.nextLine());
+        try {
+          opcaoDigitada = input.nextLine();
+          opcao = Integer.parseInt(opcaoDigitada);
+      
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("digite a opçao novamente");
+            opcaoDigitada = input.nextLine();
+          opcao = Integer.parseInt(opcaoDigitada);
+        }
+      
         return opcao;
     }
 }

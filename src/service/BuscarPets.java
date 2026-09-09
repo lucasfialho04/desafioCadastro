@@ -53,7 +53,7 @@ public class BuscarPets {
         }
     } 
     public static Pet alterarPet() {
-       
+       String s;
         List<Pet> petsBuscados = buscarEexibir();
         Pet pet = null;
         Endereco enderecoPet = new Endereco();
@@ -61,8 +61,8 @@ public class BuscarPets {
         boolean encontrado = false;
         do {
             System.out.println("qual pet voce quer alterar? ");
-            r = Menu.input.nextInt();
-            r = r - 1;
+            s = Menu.input.nextLine();
+            r = Integer.parseInt(s) - 1;
 
             try {
                 pet = petsBuscados.get(r);
