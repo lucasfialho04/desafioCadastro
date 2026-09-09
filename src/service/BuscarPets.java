@@ -5,7 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +31,13 @@ public class BuscarPets {
     }
     public static void alterarFilePet (){
         Pet petAlterado = alterarPet();
-
+        LocalDateTime dataHoje = LocalDateTime.now();
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmm");
+        String format = dataHoje.format(dataFormatada);
+        String nomePet = petAlterado.getNome().toUpperCase().replace(" ", "");
+        String nomeFinal = format + "-" + nomePet + ".txt";
         File file = new File("petsCadastrados",petAlterado.getNomeArquivoPet());
+        File fileRenamed = new File("petsCadastrados",nomeFinal);
         try (FileWriter fw = new FileWriter(file);
              BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(1 + " - " + petAlterado.getNome());
@@ -48,9 +54,13 @@ public class BuscarPets {
             bw.write(6 + " - " + petAlterado.getPeso());
             bw.newLine();
             bw.write(7 + " - " + petAlterado.getRaca());
+            file.renameTo(fileRenamed);
+            
+ 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     } 
     public static Pet alterarPet() {
        String s;
@@ -188,6 +198,7 @@ public class BuscarPets {
                 e.printStackTrace();
             }
             pet1.setNomeArquivoPet(petFile.getName());
+    
             listaPets[i] = pet1;
             i++;
         }
