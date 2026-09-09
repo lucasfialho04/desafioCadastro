@@ -47,6 +47,7 @@ public class BuscarPets {
 
         } while (encontrado == false);
         System.out.println(pet+pet.getNomeArquivoPet());
+        int opcaoEscolhida = Menu.menuAlterar();
     }
 
 

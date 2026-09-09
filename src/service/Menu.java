@@ -62,4 +62,16 @@ public class Menu {
         }
         return opcaoEscolhida;
     }
+    public static  int menuAlterar(){
+        Scanner input = new Scanner(System.in, "UTF-8");
+        int opcao = 0;
+        System.out.println("qual caracteristica do pet deseja alterar? ");
+        System.out.println("opção 1: NOME");
+        System.out.println("opção 2: IDADE");
+        System.out.println("opção 3: ENDEREÇO");
+        System.out.println("opção 4: PESO");
+        System.out.println("opção 5: RAÇA");
+        opcao = input.nextInt();
+        return opcao;
+    }
 }
