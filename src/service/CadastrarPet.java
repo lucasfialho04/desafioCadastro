@@ -1,6 +1,6 @@
 package service;
 
-import java.util.Scanner;
+
 
 import domain.Endereco;
 import domain.NaoInformado;
@@ -11,7 +11,7 @@ import excecoes.TipoInvalidoException;
 
 public class CadastrarPet {
     public void cadastrar() {
-        Scanner input = new Scanner(System.in,"UTF-8");
+       
         String[] repostasForm = LerForm.lerForm();
         Pet pet1 = new Pet();
 
@@ -25,7 +25,7 @@ public class CadastrarPet {
                 e.printStackTrace();
                 do {
                     System.out.println("digite um nome valido");
-                    repostasForm[0] = input.nextLine();
+                    repostasForm[0] = Menu.input.nextLine();
                     nomeValidado = repostasForm[0].matches(regexNome);
                 } while (!nomeValidado);
                 pet1.setNome(repostasForm[0]);
@@ -56,18 +56,18 @@ public class CadastrarPet {
         // endreço do pet
         // cidade
         System.out.println("Qual sua cidade? ");
-        repostasForm[3] = input.nextLine();
+        repostasForm[3] = Menu.input.nextLine();
         Endereco enderecoPet1 = new Endereco();
         enderecoPet1.setCidade(repostasForm[3]);
         // numero
         System.out.println("Qual o numero da casa?");
 
-        String numero = input.nextLine();
+        String numero =Menu.input.nextLine();
         enderecoPet1.setNumeroCasa(numero);
 
         // rua
         System.out.println("qual a rua? ");
-        enderecoPet1.setRua(input.nextLine());
+        enderecoPet1.setRua(Menu.input.nextLine());
 
         pet1.setEndereco(enderecoPet1);
         // idade do pet
@@ -127,7 +127,7 @@ public class CadastrarPet {
                 System.out.println(e.getMessage());
                 do {
                     System.out.println("digite uma raça valida");
-                    repostasForm[6] = input.nextLine();
+                    repostasForm[6] = Menu.input.nextLine();
                     racaValidada = repostasForm[6].matches(regexRaca);
                 } while (!racaValidada);
                 pet1.setRaca(repostasForm[6]);

@@ -17,7 +17,7 @@ public class Main {
                pet.cadastrar();
                break;
             case 2:
-               BuscarPets.alterarPet();
+               BuscarPets.alterarFilePet();
                break;
             case 3:
 

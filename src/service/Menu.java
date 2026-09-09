@@ -3,8 +3,10 @@ package service;
 import java.util.Scanner;
 
 public class Menu {
+
+    public static Scanner input = new Scanner(System.in, "UTF-8");
     public static int menu() {
-        Scanner input = new Scanner(System.in, "UTF-8");
+        
         int opcaoEscolhida = 0;
         String opcao;
 
@@ -32,9 +34,9 @@ public class Menu {
     }
 
     public static int[] menu1() {
-        Scanner input = new Scanner(System.in, "UTF-8");
+       
         int[] opcaoEscolhida = new int[2];
-        System.out.println("escolha 1 opcao, para fitrar pelo pet que deseja. cachorro/gato");
+        System.out.println("escolha 1 opcao, para fitrar pelo pet que deseja. ");
         System.out.println("  Opção  1 - Nome\r\n" + //
                 "  Opção  2 - Sexo\r\n" + //
                 " Opção   3 - Idade\r\n" + //
@@ -63,7 +65,7 @@ public class Menu {
         return opcaoEscolhida;
     }
     public static  int menuAlterar(){
-        Scanner input = new Scanner(System.in, "UTF-8");
+        
         int opcao = 0;
         System.out.println("qual caracteristica do pet deseja alterar? ");
         System.out.println("opção 1: NOME");
@@ -71,7 +73,7 @@ public class Menu {
         System.out.println("opção 3: ENDEREÇO");
         System.out.println("opção 4: PESO");
         System.out.println("opção 5: RAÇA");
-        opcao = input.nextInt();
+        opcao = Integer.parseInt(input.nextLine());
         return opcao;
     }
 }

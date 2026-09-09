@@ -1,11 +1,14 @@
 package service;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 import domain.Endereco;
 import domain.NaoInformado;
@@ -25,16 +28,40 @@ public class BuscarPets {
                     + " - " + pet.getPeso() + " - " + pet.getRaca());
         }
     }
+    public static void alterarFilePet (){
+        Pet petAlterado = alterarPet();
 
-    public static void alterarPet() {
-        Scanner input = new Scanner(System.in, "UTF-8");
+        File file = new File("petsCadastrados",petAlterado.getNomeArquivoPet());
+        try (FileWriter fw = new FileWriter(file);
+             BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(1 + " - " + petAlterado.getNome());
+            bw.newLine();
+            bw.write(2 + " - " + petAlterado.getTipoPet());
+            bw.newLine();
+            bw.write(3 + " - " + petAlterado.getSexo());
+            bw.newLine();
+            bw.write(4 + " - " + petAlterado.getEndereco().getRua() + "," + petAlterado.getEndereco().getNumeroCasa() + ","
+                    + petAlterado.getEndereco().getCidade());
+            bw.newLine();
+            bw.write(5 + " - " + petAlterado.getIdade());
+            bw.newLine();
+            bw.write(6 + " - " + petAlterado.getPeso());
+            bw.newLine();
+            bw.write(7 + " - " + petAlterado.getRaca());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } 
+    public static Pet alterarPet() {
+       
         List<Pet> petsBuscados = buscarEexibir();
         Pet pet = null;
+        Endereco enderecoPet = new Endereco();
         int r = 0;
         boolean encontrado = false;
         do {
             System.out.println("qual pet voce quer alterar? ");
-            r = input.nextInt();
+            r = Menu.input.nextInt();
             r = r - 1;
 
             try {
@@ -46,8 +73,44 @@ public class BuscarPets {
             }
 
         } while (encontrado == false);
-        System.out.println(pet+pet.getNomeArquivoPet());
+        // System.out.println(pet.getNomeArquivoPet());
         int opcaoEscolhida = Menu.menuAlterar();
+        
+        switch (opcaoEscolhida) {
+            case 1:
+                System.out.println("digite o novo nome");
+                String nome = Menu.input.nextLine();
+                pet.setNome(nome);
+                break;
+            case 2:
+                System.out.println("digite a nova idade");
+                String idade = Menu.input.nextLine();
+                pet.setIdade(idade);
+                break;
+            case 3:
+                System.out.println("digite o novo Endereço");
+                System.out.println("qual a rua?");
+                enderecoPet.setRua(Menu.input.nextLine());
+                System.out.println("qual o numero da casa?");
+                enderecoPet.setNumeroCasa(Menu.input.nextLine());
+                System.out.println("qual a cidade?");
+                enderecoPet.setCidade(Menu.input.nextLine());
+                pet.setEndereco(enderecoPet);
+                break;
+            case 4:
+                System.out.println("digite o novo peso");
+                String peso = Menu.input.nextLine();
+                pet.setPeso(peso);
+                break;
+            case 5:
+                System.out.println("digite a nova raça");
+                String raca = Menu.input.nextLine();
+                pet.setRaca(raca);
+                break;
+            default:
+                break;
+        }
+            return pet;
     }
 
 
@@ -132,9 +195,9 @@ public class BuscarPets {
     }
 
     public static String[] filtroPet() {
-        Scanner input = new Scanner(System.in, "UTF-8");
-        System.out.println(" qual o tipo do  pet que voce procura? ");
-        String tipoPet = input.nextLine().toUpperCase();
+        
+        System.out.println(" qual o tipo do  pet que voce procura? cachorro/gato");
+        String tipoPet = Menu.input.nextLine().toUpperCase();
         int[] menu1 = Menu.menu1();
 
         String[] informacao = new String[7];
@@ -144,27 +207,27 @@ public class BuscarPets {
             switch (i) {
                 case 1:
                     System.out.println("qual o nome?");
-                    informacao[i] = input.nextLine();
+                    informacao[i] =  Menu.input.nextLine();
                     break;
                 case 2:
                     System.out.println("qual o sexo? masculino/feminino");
-                    informacao[i] = input.nextLine().toUpperCase();
+                    informacao[i] =  Menu.input.nextLine().toUpperCase();
                     break;
                 case 3:
                     System.out.println("qual a idade?");
-                    informacao[i] = input.nextLine();
+                    informacao[i] =  Menu.input.nextLine();
                     break;
                 case 4:
                     System.out.println("qual o peso?");
-                    informacao[i] = input.nextLine();
+                    informacao[i] =  Menu.input.nextLine();
                     break;
                 case 5:
                     System.out.println("qual a raça?");
-                    informacao[i] = input.nextLine();
+                    informacao[i] =  Menu.input.nextLine();
                     break;
                 case 6:
                     System.out.println("qual o endereço?");
-                    informacao[i] = input.nextLine();
+                    informacao[i] =  Menu.input.nextLine();
                     break;
                 default:
                     break;
