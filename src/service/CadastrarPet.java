@@ -82,9 +82,9 @@ public class CadastrarPet {
                 if (idadePet > 20) {
                     throw new TipoInvalidoException("idade invalida");
                 }
-                if (idadePet < 1) {
-                    idadePet = idadePet / 12;
-                }
+             //   if (idadePet < 1) {
+              //      idadePet = idadePet / 12;
+               // }
                 idadeFinal = String.valueOf(idadePet);
             }
 

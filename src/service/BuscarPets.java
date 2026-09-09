@@ -14,18 +14,43 @@ import domain.Sexo;
 import domain.TipoPet;
 
 public class BuscarPets {
-    public static void exibirAllPets(){
+    public static void exibirAllPets() {
         Pet[] lerPetArquvio = lerPetArquvio();
-        int c =0;
+        int c = 0;
         for (Pet pet : lerPetArquvio) {
             c++;
-           System.out.println(c + ". " + pet.getNome() + " - " + pet.getTipoPet().toString() + " - "
+            System.out.println(c + ". " + pet.getNome() + " - " + pet.getTipoPet().toString() + " - "
                     + pet.getSexo().toString() + " - " + pet.getEndereco().getRua() + ", "
                     + pet.getEndereco().getNumeroCasa() + " - " + pet.getEndereco().getCidade() + " - " + pet.getIdade()
                     + " - " + pet.getPeso() + " - " + pet.getRaca());
         }
     }
-    public static void buscarEexibir() {
+
+    public static void alterarPet() {
+        Scanner input = new Scanner(System.in, "UTF-8");
+        List<Pet> petsBuscados = buscarEexibir();
+        Pet pet = null;
+        int r = 0;
+        boolean encontrado = false;
+        do {
+            System.out.println("qual pet voce quer alterar? ");
+            r = input.nextInt();
+            r = r - 1;
+
+            try {
+                pet = petsBuscados.get(r);
+                encontrado = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("numero do pet nao existe ");
+            }
+
+        } while (encontrado == false);
+        System.out.println(pet+pet.getNomeArquivoPet());
+    }
+
+
+    public static List<Pet> buscarEexibir() {
         Pet[] lerPetArquvio = lerPetArquvio();
         String[] filtroPet = filtroPet();
         List<Pet> compararPets = compararPets(lerPetArquvio, filtroPet);
@@ -37,6 +62,7 @@ public class BuscarPets {
                     + pet.getEndereco().getNumeroCasa() + " - " + pet.getEndereco().getCidade() + " - " + pet.getIdade()
                     + " - " + pet.getPeso() + " - " + pet.getRaca());
         }
+        return compararPets;
     }
 
     public static Pet[] lerPetArquvio() {
@@ -97,6 +123,7 @@ public class BuscarPets {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            pet1.setNomeArquivoPet(petFile.getName());
             listaPets[i] = pet1;
             i++;
         }
@@ -105,7 +132,7 @@ public class BuscarPets {
 
     public static String[] filtroPet() {
         Scanner input = new Scanner(System.in, "UTF-8");
-        System.out.println(" qual o tipo do  pet? ");
+        System.out.println(" qual o tipo do  pet que voce procura? ");
         String tipoPet = input.nextLine().toUpperCase();
         int[] menu1 = Menu.menu1();
 

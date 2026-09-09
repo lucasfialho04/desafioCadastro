@@ -1,0 +1,7 @@
+1 - thor
+2 - GATO
+3 - MASCULINO
+4 - Rua Bahia,85,campina grande
+5 - 0.016666666666666666
+6 - 1.0
+7 - nao sei

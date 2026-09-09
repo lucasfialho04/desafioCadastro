@@ -1,0 +1,7 @@
+1 - aristeu
+2 - CACHORRO
+3 - MASCULINO
+4 - rua bahia,85,campina grand
+5 - 7.0
+6 - 22.0
+7 - nao informado

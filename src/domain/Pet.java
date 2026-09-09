@@ -8,6 +8,7 @@ public class Pet {
     private  Endereco endereco;
     private TipoPet tipoPet;
     private Sexo sexo;
+    private String nomeArquivoPet;
 
     public String getNome() {
         return nome;
@@ -50,6 +51,12 @@ public class Pet {
     }
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
+    }
+    public String getNomeArquivoPet() {
+        return nomeArquivoPet;
+    }
+    public void setNomeArquivoPet(String nomeArquivoPet) {
+        this.nomeArquivoPet = nomeArquivoPet;
     }
 
     

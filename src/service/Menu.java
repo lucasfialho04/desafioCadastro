@@ -34,7 +34,7 @@ public class Menu {
     public static int[] menu1() {
         Scanner input = new Scanner(System.in, "UTF-8");
         int[] opcaoEscolhida = new int[2];
-        System.out.println("escolha 1 opcao");
+        System.out.println("escolha 1 opcao, para fitrar pelo pet que deseja. cachorro/gato");
         System.out.println("  Opção  1 - Nome\r\n" + //
                 "  Opção  2 - Sexo\r\n" + //
                 " Opção   3 - Idade\r\n" + //
