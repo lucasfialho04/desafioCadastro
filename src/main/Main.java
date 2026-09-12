@@ -2,6 +2,7 @@ package main;
 
 import service.BuscarPets;
 import service.CadastrarPet;
+import service.DeletarPet;
 import service.Menu;
 
 public class Main {
@@ -20,7 +21,7 @@ public class Main {
                BuscarPets.alterarFilePet();
                break;
             case 3:
-
+               DeletarPet.deletandoPet();
                break;
             case 4:
                BuscarPets.exibirAllPets();

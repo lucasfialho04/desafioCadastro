@@ -70,9 +70,10 @@ public class BuscarPets {
         do {
             System.out.println("qual pet voce quer alterar? ");
             s = Menu.input.nextLine();
-            r = Integer.parseInt(s) - 1;
+            
 
             try {
+                r = Integer.parseInt(s) - 1;
                 pet = petsBuscados.get(r);
                 encontrado = true;
             } catch (Exception e) {
