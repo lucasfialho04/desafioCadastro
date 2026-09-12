@@ -32,7 +32,7 @@ public class Menu {
         } while (!(opcaoEscolhida > 0) || !(opcaoEscolhida < 7));
         return opcaoEscolhida;
     }
-
+    
     public static int[] menu1() {
        
         int[] opcaoEscolhida = new int[2];

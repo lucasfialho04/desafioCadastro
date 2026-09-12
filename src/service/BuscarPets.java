@@ -54,13 +54,11 @@ public class BuscarPets {
             bw.write(6 + " - " + petAlterado.getPeso());
             bw.newLine();
             bw.write(7 + " - " + petAlterado.getRaca());
-            file.renameTo(fileRenamed);
-            
- 
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+         file.renameTo(fileRenamed);
     } 
     public static Pet alterarPet() {
        String s;
